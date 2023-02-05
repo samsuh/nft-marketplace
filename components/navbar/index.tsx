@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import ActiveLink from '../link'
 
 const navigation = [
   { name: 'Marketplace', href: '/', current: true },
@@ -46,19 +47,15 @@ export default function Example() {
                 <div className='hidden sm:ml-6 sm:block'>
                   <div className='flex space-x-4'>
                     {navigation.map((item) => (
-                      <Link
+                      <ActiveLink
+                        activeClass='bg-gray-900 text-white'
                         key={item.name}
                         href={item.href}
-                        className={classNames(
-                          item.current
-                            ? 'bg-gray-900 text-white'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
+                        className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </Link>
+                      </ActiveLink>
                     ))}
                   </div>
                 </div>
@@ -97,7 +94,7 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            href='#'
+                            href='/profile'
                             className={classNames(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
