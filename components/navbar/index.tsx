@@ -51,10 +51,12 @@ export default function Example() {
                         activeClass='bg-gray-900 text-white'
                         key={item.name}
                         href={item.href}
-                        className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
                         aria-current={item.current ? 'page' : undefined}
+                        legacyBehavior
                       >
-                        {item.name}
+                        <a className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
+                          {item.name}
+                        </a>
                       </ActiveLink>
                     ))}
                   </div>
